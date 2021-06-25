@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
-import Length from './length';
+import { reducer } from './converterLength/reducer';
 
 const AllReducers = combineReducers({
-    length: Length
+    length: reducer
 })
 
 export default AllReducers;
