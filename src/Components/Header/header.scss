@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(72, 139, 117);
+    color: white;
+    text-align: center;
+    align-items: center;
+    &__name{
+        margin: 10px;
+        font-style: italic;
+    }
+    &__buttons{
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 10px;
+    }
+    &__button{
+        border: none;
+        border-radius: 5px;
+        height: 25px;
+        margin: auto 0;
+    }
+}

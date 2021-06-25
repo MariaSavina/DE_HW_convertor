@@ -1,0 +1,29 @@
+.length-convert{
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    margin: 150px auto;
+    &__first{
+        display: flex;
+        flex-direction: column;
+    }
+    &__second{
+        display: flex;
+        flex-direction: column;
+    }
+    &__input{
+        height: 30px;
+        background:#dee6e3;
+    }
+    &__select{
+        height: 30px;
+        background:#dee6e3;
+    }
+    &__button{
+        background: #488b75;
+        border: none;
+        border-radius: 5px;
+        height: 25px;
+        margin: auto 0;
+    }
+}
