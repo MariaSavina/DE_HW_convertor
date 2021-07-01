@@ -22,14 +22,10 @@ export const changeOutputValue = (payload) =>({
 export const changeSomeValue = (payload) => ({type:AT.FETCH_GET_SUCCSESS, payload})
 
 export const getCurrent = () => dispatch => {
-        setTimeout(()=>{
-            console.log('smth...');
-            const responce = fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
-            .then((response) => {
-                return response.json();
-            })
-            .then((data) =>{console.log(data) } 
-            );
-            dispatch(changeSomeValue())
-        },2000)
+    fetch('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5')
+    .then((response) => {
+        return response.json();
+    })
+    .then((data) =>{dispatch(changeSomeValue(data)) } 
+     );              
 }

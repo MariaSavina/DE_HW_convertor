@@ -15,9 +15,20 @@ class ConvertorCurrency extends Component {
         const dataCur = this.props.showMe()
     }
     showMe = () => {
-        console.log(this.props.data)
+        console.log(this.props.data);
+        let first=Number(this.props.data.input_value);
+        let second=1;
+
+        for(let i=0;i<this.props.data.some_value.length;i++){
+            if(this.props.data.some_value[i].ccy == this.props.data.input_type.toUpperCase()){
+                first = Number(this.props.data.input_value) * this.props.data.some_value[i].buy
+            }
+            if(this.props.data.some_value[i].ccy == this.props.data.output_type.toUpperCase()){
+                second = Number(this.props.data.some_value[i].buy)
+            }
+        }
         const { changeOutputValue } = this.props
-        changeOutputValue('tru-la-la')
+        changeOutputValue(first / second)
     }
     render(){
         return(
