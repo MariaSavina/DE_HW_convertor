@@ -1,5 +1,4 @@
-export default function() {
-    return [
+export const changeLenth = [
         {
             id: 1,
             name:"meter",
@@ -46,4 +45,3 @@ export default function() {
             yard: 1
         }
     ]
-}

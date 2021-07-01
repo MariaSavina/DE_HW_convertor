@@ -2,16 +2,20 @@ import React, { Component } from 'react';
 import { lengthOptions } from '../../../constants/contants'
 
 class ConverterBlock extends Component {
-    showMe = () => {
-        console.log(this.props.lengthFUCK)
-    }
     handleChangeSelect = (e) => {
         const { changeInputType } = this.props
         changeInputType(e.target.value)
     }
     handleChangeInput = (e) => {
+        let res=e.target.value.split('')
+        let ressss=''
+        for(let i=0;i<res.length;i++){
+            if(res[i].charCodeAt() > 48 &&  res[i].charCodeAt() < 57){
+                ressss+=res[i]
+            }
+        }
         const { changeInputValue } = this.props
-        changeInputValue(e.target.value)
+        changeInputValue(ressss)
     }
     render(){
         const { input_type, input_value } = this.props

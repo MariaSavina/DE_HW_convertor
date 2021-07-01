@@ -14,10 +14,20 @@ export const reducer = (state = initialState, action) =>{
                 ...state,
                 input_type: action.payload,
             }
+        case AT.CHANGE_OUTPUT_TYPE:
+            return {
+                ...state,
+                output_type: action.payload,
+            }
         case AT.CHANGE_INPUT_VALUE:
             return {
                 ...state,
                 input_value: action.payload,
+            }
+        case AT.CHANGE_OUTPUT_VALUE:
+            return {
+                ...state,
+                output_value: action.payload,
             }
         default:
             return state

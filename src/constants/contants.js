@@ -5,3 +5,10 @@ export const lengthOptions = [
     { value: 'foot' , label: 'Foot'},
     { value: 'yard' , label: 'Yard'},
 ]
+
+export const currentOptions = [
+    {value: 'uah' , label: 'UAH'},
+    {value: 'usd' , label: 'USD'},
+    {value: 'eur' , label: 'EUR'},
+    {value: 'rur' , label: 'RUR'}
+]

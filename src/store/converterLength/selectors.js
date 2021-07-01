@@ -9,3 +9,11 @@ export const getInputValue = createSelector(
     getLengthState,
     (length) => length.input_value
 )
+export const getOutputType = createSelector(
+    getLengthState,
+    (length) => length.output_type
+)
+export const getOutputValue = createSelector(
+    getLengthState,
+    (length) => length.output_value
+)

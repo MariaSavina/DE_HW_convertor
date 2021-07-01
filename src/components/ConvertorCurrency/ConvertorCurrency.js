@@ -1,36 +1,42 @@
-import React from 'react';
+import React, { Component } from 'react';
+import {connect} from 'react-redux';
+
+import CurrencyInput from './CurrencyInput';
+import CurrencyOutput from './CurrencyOutput';
+import {changeOutputValue, getCurrent, changeSomeValue} from '../../store/convertorCurrent/actions'
 
 import '../ConvertorLength/convertorLength.scss';
 
 // https://api.privatbank.ua/#p24/exchange
 
-const ConvertorCurrency = () => {
-    
-    return(
-        <div>
+class ConvertorCurrency extends Component {
+
+    componentDidMount(){
+        const dataCur = this.props.showMe()
+    }
+    showMe = () => {
+        console.log(this.props.data)
+        const { changeOutputValue } = this.props
+        changeOutputValue('tru-la-la')
+    }
+    render(){
+        return(
             <div className="length-convert">
-            <div className="length-convert__first">
-                <input className="length-convert__input"/>
-                <select className="length-convert__select">
-                    <option>UAH</option>
-                    <option>USD</option>
-                    <option>EUR</option>
-                    <option>RUR</option>
-                </select>
+                <CurrencyInput />
+                <button className="length-convert__button" onClick={this.showMe}>Convert</button>
+                <CurrencyOutput />
             </div>
-            <button className="length-convert__button">Convert</button>
-            <div className="length-convert__second">
-                <input className="length-convert__input" disabled/>
-                <select className="length-convert__select">
-                    <option>UAH</option>
-                    <option>USD</option>
-                    <option>EUR</option>
-                    <option>RUR</option>
-                </select>
-            </div>
-        </div>
-        </div>
-    )
+        )
+    }
 }
 
-export default ConvertorCurrency
+function mapStateToProps(state){
+    return {data: state.current}
+}
+const mapDispatchToProps = (dispatch) =>({
+    changeOutputValue: (value) => dispatch(changeOutputValue(value)),
+    changeSomeValue: (value) => dispatch(changeSomeValue(value)),
+    showMe: () => {dispatch(getCurrent())}
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(ConvertorCurrency)
